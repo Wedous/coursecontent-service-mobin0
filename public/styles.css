@@ -18,9 +18,8 @@ h2 {
 }
 .app-container{
   /*background-color:blue;*/
-  width: 50% ;
-  margin: 0 auto;
-
+  width: 55% ;
+  margin: 0;
 }
   .app-header {
     /*background:red;*/
