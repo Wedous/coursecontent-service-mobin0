@@ -1,5 +1,6 @@
 
 
+
 import React from "react"
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
@@ -32,23 +33,14 @@ class Entries extends React.Component {
   render () {
 
     return (
-        <div className = "entry-course-items">
+        <div className = "entry-course-items"> 
           <div className = "entry-image-div"> <img className = "entry-image" src = "img/playbutton.png"/>
           </div>
-            <div className = "entry-name"> {this.state.entry.name} </div>
-
-          <div className = "entry-lecture-length"> {this.state.hours + ":" + this.state.minutes} </div>
+            <div className = "entry-name">{this.state.entry.name}</div>
+          <div className = "entry-lecture-length">{this.state.hours + ":" + this.state.minutes}</div>
         </div>
-
-
-
       )
-
-
   }
-
-
-
 }
 
-module.exports = Entries;
+export default Entries;
