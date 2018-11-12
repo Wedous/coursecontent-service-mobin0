@@ -25,10 +25,12 @@ class CourseItem extends React.Component {
     this.clickHandler = this.clickHandler.bind(this)
     this.setTime()
     this.setMinutes()
+
   }
 
   componentDidMount () {
-    this.state.updateState(this.setState.bind(this))
+        this.state.updateState(this.setState.bind(this))
+        // this.state.updateState("Hey")
   }
 
   setTime () {
