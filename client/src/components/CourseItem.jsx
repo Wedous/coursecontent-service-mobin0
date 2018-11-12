@@ -28,9 +28,7 @@ class CourseItem extends React.Component {
   }
 
   componentDidMount () {
-    this.state.updateState(this.state, this.setState.bind(this))
-
-
+    this.state.updateState(this.setState.bind(this))
   }
 
   setTime () {
@@ -54,10 +52,10 @@ class CourseItem extends React.Component {
     return (
       <div className = "course-item-container">
           <div className = "course-item" onClick = {this.clickHandler}>
-            <span className = "plus-sign">{this.state.hidden ? "+": "–"} </span>
-            <span className= "course-title">{this.state.title + ""} </span>
-            <span className = {this.state.hidden? "course-lecture-length": "course-lecture-length-hidden"}> {this.state.entries.length + " lectures"} </span>
-            <span className = "course-lecture-duration"> {this.state.hours + ":" + this.state.minutes} </span>
+            <span className = "plus-sign">{this.state.hidden ? "+": "–"}</span>
+            <span className= "course-title">{this.state.title + ""}</span>
+            <span className = {this.state.hidden? "course-lecture-length": "course-lecture-length-hidden"}>{this.state.entries.length + " lectures"}</span>
+            <span className = "course-lecture-duration">{this.state.hours + ":" + this.state.minutes}</span>
       </div>
       <div  className = {this.state.hidden ? "course-entries" : "course-entries-shown"} id = {"section" + this.state.sectionNumber}>
       {this.state.entries.map((entry) => (<Entries key = {JSON.stringify(entry)} entry = {entry} sectionNumber = {this.state.sectionNumber}/>)

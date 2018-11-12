@@ -16,16 +16,16 @@ class CourseContent extends React.Component {
     // console.log("Course Content Data", this.state.data)
   }
 
- setMinutes() {
-    let minutes = this.state.entry.duration
-    let hours = Math.floor(minutes/60)
-    minutes = minutes - hours*60
-    // console.log(minutes)
-    this.state.minutes = minutes < 10 ? "0"+minutes : "" + minutes;
-    this.state.hours= "0" + hours
+ // setMinutes() {
+ //    let minutes = this.state.entry.duration
+ //    let hours = Math.floor(minutes/60)
+ //    minutes = minutes - hours*60
+ //    // console.log(minutes)
+ //    this.state.minutes = minutes < 10 ? "0"+minutes : "" + minutes;
+ //    this.state.hours= "0" + hours
 
 
-  }
+ //  }
   render () {
     return (
       <div className = "course-content">

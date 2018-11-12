@@ -12,15 +12,16 @@ node: {
   fs: 'empty'
 },
   module : {
-    loaders : [
+    rules : [
       {
         test : /\.jsx?/,
         include : SRC_DIR,
         loader : 'babel-loader',
         query: {
-          presets: ['react', 'env']
+          presets: ['@babel/react', '@babel/env']
         }
       }
     ]
   }
 };
+

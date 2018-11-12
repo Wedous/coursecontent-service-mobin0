@@ -1,0 +1,420 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CourseItem should have same snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CourseItem
+    courseItem={
+      Object {
+        "entries": Array [
+          Object {
+            "duration": 249,
+            "entryNumber": 1,
+            "name": "Talk by Agustin Murray",
+          },
+        ],
+        "sectionNumber": 1,
+        "title": "Progressive 24/7 Graphical User Interface",
+      }
+    }
+    updateCourseItemStates={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            [Function],
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="course-item"
+          onClick={[Function]}
+        >
+          <span
+            className="plus-sign"
+          >
+            +
+          </span>
+          <span
+            className="course-title"
+          >
+            Progressive 24/7 Graphical User Interface
+          </span>
+          <span
+            className="course-lecture-length"
+          >
+            1 lectures
+          </span>
+          <span
+            className="course-lecture-duration"
+          >
+            04:09
+          </span>
+        </div>,
+        <div
+          className="course-entries"
+          id="section1"
+        >
+          <Entries
+            entry={
+              Object {
+                "duration": 249,
+                "entryNumber": 1,
+                "name": "Talk by Agustin Murray",
+              }
+            }
+            sectionNumber={1}
+          />
+        </div>,
+      ],
+      "className": "course-item-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span
+              className="plus-sign"
+            >
+              +
+            </span>,
+            <span
+              className="course-title"
+            >
+              Progressive 24/7 Graphical User Interface
+            </span>,
+            <span
+              className="course-lecture-length"
+            >
+              1 lectures
+            </span>,
+            <span
+              className="course-lecture-duration"
+            >
+              04:09
+            </span>,
+          ],
+          "className": "course-item",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "+",
+              "className": "plus-sign",
+            },
+            "ref": null,
+            "rendered": "+",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Progressive 24/7 Graphical User Interface",
+              "className": "course-title",
+            },
+            "ref": null,
+            "rendered": "Progressive 24/7 Graphical User Interface",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "1 lectures",
+              "className": "course-lecture-length",
+            },
+            "ref": null,
+            "rendered": "1 lectures",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "04:09",
+              "className": "course-lecture-duration",
+            },
+            "ref": null,
+            "rendered": "04:09",
+            "type": "span",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Entries
+              entry={
+                Object {
+                  "duration": 249,
+                  "entryNumber": 1,
+                  "name": "Talk by Agustin Murray",
+                }
+              }
+              sectionNumber={1}
+            />,
+          ],
+          "className": "course-entries",
+          "id": "section1",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "{\\"name\\":\\"Talk by Agustin Murray\\",\\"duration\\":249,\\"entryNumber\\":1}",
+            "nodeType": "class",
+            "props": Object {
+              "entry": Object {
+                "duration": 249,
+                "entryNumber": 1,
+                "name": "Talk by Agustin Murray",
+              },
+              "sectionNumber": 1,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="course-item"
+            onClick={[Function]}
+          >
+            <span
+              className="plus-sign"
+            >
+              +
+            </span>
+            <span
+              className="course-title"
+            >
+              Progressive 24/7 Graphical User Interface
+            </span>
+            <span
+              className="course-lecture-length"
+            >
+              1 lectures
+            </span>
+            <span
+              className="course-lecture-duration"
+            >
+              04:09
+            </span>
+          </div>,
+          <div
+            className="course-entries"
+            id="section1"
+          >
+            <Entries
+              entry={
+                Object {
+                  "duration": 249,
+                  "entryNumber": 1,
+                  "name": "Talk by Agustin Murray",
+                }
+              }
+              sectionNumber={1}
+            />
+          </div>,
+        ],
+        "className": "course-item-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span
+                className="plus-sign"
+              >
+                +
+              </span>,
+              <span
+                className="course-title"
+              >
+                Progressive 24/7 Graphical User Interface
+              </span>,
+              <span
+                className="course-lecture-length"
+              >
+                1 lectures
+              </span>,
+              <span
+                className="course-lecture-duration"
+              >
+                04:09
+              </span>,
+            ],
+            "className": "course-item",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "+",
+                "className": "plus-sign",
+              },
+              "ref": null,
+              "rendered": "+",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Progressive 24/7 Graphical User Interface",
+                "className": "course-title",
+              },
+              "ref": null,
+              "rendered": "Progressive 24/7 Graphical User Interface",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "1 lectures",
+                "className": "course-lecture-length",
+              },
+              "ref": null,
+              "rendered": "1 lectures",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "04:09",
+                "className": "course-lecture-duration",
+              },
+              "ref": null,
+              "rendered": "04:09",
+              "type": "span",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Entries
+                entry={
+                  Object {
+                    "duration": 249,
+                    "entryNumber": 1,
+                    "name": "Talk by Agustin Murray",
+                  }
+                }
+                sectionNumber={1}
+              />,
+            ],
+            "className": "course-entries",
+            "id": "section1",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "{\\"name\\":\\"Talk by Agustin Murray\\",\\"duration\\":249,\\"entryNumber\\":1}",
+              "nodeType": "class",
+              "props": Object {
+                "entry": Object {
+                  "duration": 249,
+                  "entryNumber": 1,
+                  "name": "Talk by Agustin Murray",
+                },
+                "sectionNumber": 1,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
