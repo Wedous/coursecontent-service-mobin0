@@ -86,17 +86,13 @@ componentDidMount(){
 
 }
 
-  componentDidMount(){
-    console.log
-  }
-
   // fetchBlogPosts() {
   //   $.get('/api/blogs', (data) => {
   //     this.setState({'data': data});
   //     console.log(data)
   //   })
-
   // }
+
   render(){
     return (
       <div className = "app-container">
@@ -116,4 +112,4 @@ componentDidMount(){
   }
 }
 
-export default App
+export default App;

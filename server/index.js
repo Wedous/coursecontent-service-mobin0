@@ -13,7 +13,7 @@ app.post('/testData', function (req, res) {
 
 fs.writeFile("./test.json", JSON.stringify(req.body), 'utf8', function (err) {
     if (err) {
-        return console.log(err);
+      return console.log(err);
     }
 
     console.log("The file was saved!");

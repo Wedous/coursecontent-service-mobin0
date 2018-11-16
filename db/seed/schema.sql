@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS content;
+
+CREATE TABLE content (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  duration INTEGER NOT NULL
+);
+
+\COPY content FROM './db/sample.csv' WITH CSV HEADER DELIMITER AS ',';
