@@ -14,18 +14,16 @@ class Entries extends React.Component {
       entry :entry
 
     }
-    // console.log("Entries", this.state.entry)
 
-    this.setMinutes()
+    this.setMinutes();
   }
 
   setMinutes() {
-    let minutes = this.state.entry.duration
-    let hours = Math.floor(minutes/60)
-    minutes = minutes - hours*60
-    // console.log(minutes)
+    let minutes = this.state.entry.duration;
+    let hours = Math.floor(minutes / 60);
+    minutes = minutes - hours * 60;
     this.state.minutes = minutes < 10 ? "0"+minutes : "" + minutes;
-    this.state.hours= "0" + hours
+    this.state.hours= "0" + hours;
 
 
   }

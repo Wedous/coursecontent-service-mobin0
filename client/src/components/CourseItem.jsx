@@ -29,8 +29,7 @@ class CourseItem extends React.Component {
   }
 
   componentWillMount () {
-        this.state.updateState(this.setState.bind(this));
-        // this.state.updateState("Hey")
+    this.state.updateState(this.setState.bind(this));
   }
 
   setTime () {
@@ -41,11 +40,10 @@ class CourseItem extends React.Component {
     this.setState({'hidden': !this.state.hidden})
   }
 
- setMinutes() {
-    let minutes = this.state.courseDuration
-    let hours = Math.floor(minutes/60)
-    minutes = minutes - hours*60
-    // console.log(minutes)
+  setMinutes() {
+    let minutes = this.state.courseDuration;
+    let hours = Math.floor(minutes/60);
+    minutes = minutes - hours * 60;
     this.state.minutes = minutes < 10 ? "0"+minutes : "" + minutes;
     this.state.hours= hours < 10? "0" + hours : "" + hours;
   }
@@ -53,29 +51,21 @@ class CourseItem extends React.Component {
   render () {
     return (
       <div className = "course-item-container">
-          <div className = "course-item" onClick = {this.clickHandler}>
-            <span className = "plus-sign">{this.state.hidden ? "+": "–"}</span>
-            <span className= "course-title">{this.state.title + ""}</span>
-            <span className = {this.state.hidden? "course-lecture-length": "course-lecture-length-hidden"}>{this.state.courseItem.length + " lectures"}</span>
-            <span className = "course-lecture-duration">{this.state.hours + ":" + this.state.minutes}</span>
+        <div className = "course-item" onClick = {this.clickHandler}>
+          <span className = "plus-sign">{this.state.hidden ? "+": "–"}</span>
+          <span className= "course-title">{this.state.title + ""}</span>
+          <span className = {this.state.hidden? "course-lecture-length": "course-lecture-length-hidden"}>{this.state.courseItem.length + " lectures"}</span>
+          <span className = "course-lecture-duration">{this.state.hours + ":" + this.state.minutes}</span>
+        </div>
+        <div className = {this.state.hidden ? "course-entries" : "course-entries-shown"} id = {"section" + this.state.sectionNumber}>
+          { [this.state.courseItem].map((entry) => (<Entries key = {JSON.stringify(entry)} entry = {entry} sectionNumber = {this.state.sectionNumber}/>)
+          )}
+        </div>
       </div>
-      <div className = {this.state.hidden ? "course-entries" : "course-entries-shown"} id = {"section" + this.state.sectionNumber}>
-      { [this.state.courseItem].map((entry) => (<Entries key = {JSON.stringify(entry)} entry = {entry} sectionNumber = {this.state.sectionNumber}/>)
-    )}
-      </div>
-
-
-      </div>
-      )
-
-
-
+    );
   }
-
-
-
 }
 
-export default CourseItem
+export default CourseItem;
 
 

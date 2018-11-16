@@ -20,7 +20,7 @@ class App extends React.Component {
     this.expandClickHandler = this.expandClickHandler.bind(this);
     this.setTime();
     this.setMinutes();
-    console.log('Fire', this.state.totalLectureCount, this.state.lectureCount);
+    //console.log('Fire', this.state.totalLectureCount, this.state.lectureCount);
   }
 
   setTime() {
@@ -52,6 +52,7 @@ class App extends React.Component {
         courseData: response.data,
         loading: true
       });
+      console.log('App.jsx this.state.courseData', this.state.courseData);
     }).catch((err) => {
       console.log('error: ', err);
     });
@@ -75,13 +76,6 @@ class App extends React.Component {
     this.setState((prevState, props)=>{
     return {"expanded": !prevState.expanded} })
 }
-
-  // fetchBlogPosts() {
-  //   $.get('/api/blogs', (data) => {
-  //     this.setState({'data': data});
-  //     console.log(data)
-  //   })
-  // }
 
   render(){
     return (

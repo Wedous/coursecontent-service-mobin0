@@ -1,10 +1,17 @@
 DROP TABLE IF EXISTS content;
+DROP TABLE IF EXISTS entries;
 
 CREATE TABLE content (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
+  courseId INTEGER NOT NULL
+);
+CREATE TABLE entries (
+  id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  duration INTEGER NOT NULL
+  duration INTEGER NOT NULL,
+  contentId INTEGER NOT NULL
 );
 
-\COPY content FROM './db/sample.csv' WITH CSV HEADER DELIMITER AS ',';
+\COPY content FROM './db/content.csv' WITH CSV HEADER DELIMITER AS ',';
+\COPY entries FROM './db/entry.csv' WITH CSV HEADER DELIMITER AS ',';

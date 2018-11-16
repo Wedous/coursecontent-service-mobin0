@@ -8,37 +8,44 @@ const faker = require('faker');
 
 const ws = fs.createWriteStream('data1.csv');
 
-// let headers = [
-//   'title',
-//   'sectionNumber',
-//   'entries',
-// ];
-
-var createData = function(n) {
-  let courses = [];
-  for (var i = 0; i < n; i++) {
+const createContent = (total, course) => {
+  let content = [];
+  for (var i = 1; i <= total; i++) {
     let courseItem = {};
-    //let courselen = Math.floor(Math.random() * 8) + 1;
-    courseItem.id = i + 1;
+    courseItem.id = i ;
     courseItem.title = faker.company.catchPhrase();
-    //courseItem.entries = [];
-    let entry = {};
-    entry.name = 'Talk by ' + faker.name.findName();
-    entry.duration = Math.floor(Math.random() * 360);
-    courseItem.entries.push(entry);
-    courses.push(courseItem);
+    courseItem.courseId = Math.floor(Math.random() * course);
+    content.push(courseItem);
   }
-  return courses;
+  return content;
 };
 
-jsonexport(createData(10), function(err, data) {
-  if (err) {
-    return console.log(err);
+const createEntry = (total, content) => {
+  let entries = [];
+  for (let i = 1; i <= total; i++) {
+    let entryItem = {};
+    entryItem.id = i;
+    entryItem.name = 'Talk by ' + faker.name.findName();
+    entryItem.duration = Math.floor(Math.random() * 360);
+    entryItem.contentId = Math.floor(Math.random() * content);
+    entries.push(entryItem);
   }
-  fs.writeFile('db/sample.csv', data, function(err) {
+  return entries;
+};
+
+const writing = (csv, file) => {
+  jsonexport(csv, function(err, data) {
     if (err) {
-      throw err;
+      return console.log(err);
     }
-    console.log('file saved');
+    fs.writeFile(file, data, function(err) {
+      if (err) {
+        throw err;
+      }
+      console.log('file saved');
+    });
   });
-});
+};
+
+writing(createContent(50, 10), 'db/content.csv');
+writing(createEntry(200, 50), 'db/entry.csv');

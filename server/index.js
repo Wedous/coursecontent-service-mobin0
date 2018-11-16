@@ -14,26 +14,17 @@ app.get('/api/:courseId', (req, res) => {
     if (err) {
       return console.error('Error acquiring client', err.stack);
     }
-    client.query('SELECT * from content', (err, result) => {
+    client.query(`select title, jsonb_agg(jsonb_build_object('name', name, 'duration', duration)) as entry 
+from (select * from content left join entries on content.id = entries.contentId where content.courseId = 
+  ${req.params.courseId}) AS derivedTable group by title`, (err, result) => {
       release();
       if (err) {
         return console.error('Error executing query', err.stack);
       }
-      res.send([result.rows[0]]);
+      res.send(result.rows);
     });
   });
 });
-
-// app.post('/testData', function (req, res) {
-// fs.writeFile("./test.json", JSON.stringify(req.body), 'utf8', function (err) {
-//     if (err) {
-//       return console.log(err);
-//     }
-
-//     console.log("The file was saved!");
-// });
-// });
-
 
 let port = 3000;
 
