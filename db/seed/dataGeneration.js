@@ -8,11 +8,11 @@ const faker = require('faker');
 
 const ws = fs.createWriteStream('data1.csv');
 
-let headers = [
-  'title',
-  'sectionNumber',
-  'entries',
-];
+// let headers = [
+//   'title',
+//   'sectionNumber',
+//   'entries',
+// ];
 
 var createData = function(n) {
   let courses = [];
@@ -22,10 +22,10 @@ var createData = function(n) {
     courseItem.id = i + 1;
     courseItem.title = faker.company.catchPhrase();
     //courseItem.entries = [];
-    //let entry = {};
-    courseItem.name = 'Talk by ' + faker.name.findName();
-    courseItem.duration = Math.floor(Math.random() * 360);
-    //courseItem.entries.push(entry);
+    let entry = {};
+    entry.name = 'Talk by ' + faker.name.findName();
+    entry.duration = Math.floor(Math.random() * 360);
+    courseItem.entries.push(entry);
     courses.push(courseItem);
   }
   return courses;

@@ -11,9 +11,11 @@ class CourseContent extends React.Component {
     super()
     this.state = {
       data: courseData,
-      updateCourseItemStates: updateCourseItemStates
+      updateCourseItemStates: updateCourseItemStates,
+      loading: true
     }
     // console.log("Course Content Data", this.state.data)
+    console.log('this.state.data', this.state.data);
   }
 
  // setMinutes() {
@@ -29,7 +31,7 @@ class CourseContent extends React.Component {
   render () {
     return (
       <div className = "course-content">
-      {this.state.data.map((courseItem) => <CourseItem updateCourseItemStates = {this.state.updateCourseItemStates} key = {JSON.stringify(courseItem)} courseItem = {courseItem} />)}
+      {this.state.loading && this.state.data.map((courseItem) => <CourseItem updateCourseItemStates = {this.state.updateCourseItemStates} key = {JSON.stringify(courseItem)} courseItem = {courseItem} />)}
       </div>
 )
 

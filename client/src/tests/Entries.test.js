@@ -5,7 +5,7 @@ import { cleanup, fireEvent, waitForElement } from 'react-testing-library';
 import {shallow, mount, render, configure} from 'enzyme';
 import 'jest-dom/extend-expect';
 import Adapter from 'enzyme-adapter-react-16';
-import courseData from './../../../db/test.js'
+import courseData from './../../../old_db/test.js'
 
 
 configure({ adapter: new Adapter() });
