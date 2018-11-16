@@ -14,7 +14,7 @@ class CourseContent extends React.Component {
       updateCourseItemStates: updateCourseItemStates,
       loading: true
     }
-    //console.log('this.state.data', this.state.data);
+    console.log('courseCountent this.state.data', this.state.data);
   }
 
   render () {
@@ -26,4 +26,4 @@ class CourseContent extends React.Component {
 }
 }
 
-export default CourseContent
+export default CourseContent;

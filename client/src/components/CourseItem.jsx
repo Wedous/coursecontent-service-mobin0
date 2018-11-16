@@ -14,13 +14,14 @@ class CourseItem extends React.Component {
       courseItem: courseItem,
       //entries: courseItem.entries,
       title: courseItem.title,
-      sectionNumber: courseItem.sectionNumber,
-      sectionId: "section" + courseItem.sectionNumber,
+      //sectionNumber: courseItem.sectionNumber,
+      //sectionId: "section" + courseItem.sectionNumber,
       hidden: true,
       updateState: updateCourseItemStates,
       hours: "00",
       minute: "00",
-      courseDuration: 0
+      courseDuration: 0,
+      loading: true
     }
     this.clickHandler = this.clickHandler.bind(this);
     this.setTime();
@@ -28,7 +29,7 @@ class CourseItem extends React.Component {
 
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.state.updateState(this.setState.bind(this));
   }
 
@@ -58,7 +59,7 @@ class CourseItem extends React.Component {
           <span className = "course-lecture-duration">{this.state.hours + ":" + this.state.minutes}</span>
         </div>
         <div className = {this.state.hidden ? "course-entries" : "course-entries-shown"} id = {"section" + this.state.sectionNumber}>
-          { [this.state.courseItem].map((entry) => (<Entries key = {JSON.stringify(entry)} entry = {entry} sectionNumber = {this.state.sectionNumber}/>)
+          { this.state.loading && this.state.courseItem.entry.map((entry) => (<Entries key = {JSON.stringify(entry)} entry = {entry} sectionNumber = {this.state.sectionNumber}/>)
           )}
         </div>
       </div>
