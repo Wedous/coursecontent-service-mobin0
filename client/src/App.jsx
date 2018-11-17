@@ -26,13 +26,14 @@ class App extends React.Component {
   setTime() {
     this.state.lectureCount = _.reduce(this.state.courseData,
       (accum, curr) => {
-        return accum + curr.entries.length;
+        return accum + curr.entry.length;
       }, 0);
 
     this.state.totalLectureDuration =
     _.reduce(this.state.courseData, (accum, curr) =>
-      (accum +
-        _.reduce(curr.entries, (a, c) => (a + c.duration), 0))
+      (
+        accum +
+        _.reduce(curr.entry, (a, c) => (a + c.duration), 0))
     , 0);
   }
 
@@ -58,14 +59,15 @@ class App extends React.Component {
     });
     let currLectureCount = _.reduce(this.state.courseData,
       (accum, curr) => {
-        return accum + curr.entries.length;
-
+        console.log('???');
+        return accum + curr.entry.length;
       }, 0);
+    console.log('currLectureCount', currLectureCount);
     this.setState({lectureCount: currLectureCount});
   }
 
   updateCourseItemStates(setState) {
-    this.state.courseItemSetStates.push(setState)
+    this.state.courseItemSetStates.push(setState);
   }
   expandClickHandler() {
     let setStates = this.state.courseItemSetStates
