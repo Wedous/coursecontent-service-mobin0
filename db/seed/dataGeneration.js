@@ -1,40 +1,43 @@
 const fs = require('fs');
 
-const jsonexport = require('jsonexport');
-
 const faker = require('faker');
 
-const csv = require('fast-csv');
-const contentStream = csv.createWriteStream({ headers: ['id', 'title', 'courseId']});
 const ws1 = fs.createWriteStream('db/content.csv');
-contentStream.pipe(ws1);
-const entryStream = csv.createWriteStream({ headers: ['id', 'name', 'duration', 'contentId']});
 const ws2 = fs.createWriteStream('db/entry.csv');
-entryStream.pipe(ws2);
+let index1 = 0;
+let index2 = 0;
 
-const createContent = (total, course) => {
-  for (var i = 1; i <= total; i++) {
-    let courseItem = {};
-    courseItem.id = i;
-    courseItem.title = faker.company.catchPhrase();
-    courseItem.courseId = Math.floor(Math.random() * course) + 1;
-    contentStream.write(courseItem);
+(function createContent() {
+  index1++;
+  if (index1 > 20000000) {
+    return ws1.end();
   }
-  contentStream.end();
-};
-
-const createEntry = (total, content) => {
-  for (let i = 1; i <= total; i++) {
-    let entryItem = {};
-    entryItem.id = i;
-    entryItem.name = 'Talk by ' + faker.name.findName();
-    entryItem.duration = Math.floor(Math.random() * 360);
-    entryItem.contentId = Math.floor(Math.random() * content) + 1;
-    entryStream.write(entryItem);
+  const id = index1;
+  console.log('content: ' + id + ' is created');
+  const title = faker.company.catchPhrase();
+  const courseId = faker.random.number({min: 1, max: 10000000});
+  const writing = ws1.write(`${id},${title},${courseId}\n`);
+  if (!writing) {
+    ws1.once('drain', createContent);
+  } else {
+    createContent();
   }
-  entryStream.end();
-};
+})();
 
-createContent(50, 10);
-createEntry(200, 50);
-
+(function createEntry() {
+  index2++;
+  if (index2 > 40000000) {
+    return ws2.end();
+  }
+  const id = index2;
+  console.log('entry: ' + id + ' is created');
+  const name = 'Talk by ' + faker.name.findName();
+  const duration = faker.random.number({min: 1, max: 360});
+  const contentId = faker.random.number({min: 1, max: 20000000});
+  const writing = ws2.write(`${id},${name},${duration},${contentId}\n`);
+  if (!writing) {
+    ws1.once('drain', createEntry);
+  } else {
+    createEntry();
+  }
+})();

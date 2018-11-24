@@ -70,7 +70,7 @@ class App extends React.Component {
     this.state.courseItemSetStates.push(setState);
   }
   expandClickHandler() {
-    let setStates = this.state.courseItemSetStates
+    let setStates = this.state.courseItemSetStates;
     for(let stateSetter of setStates){
       stateSetter((prevState, props)=>{
        return {"hidden": !this.state.expanded} })
