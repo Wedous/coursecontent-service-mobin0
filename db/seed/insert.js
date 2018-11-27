@@ -51,5 +51,5 @@ entryModel.syncDB(function(err, result) {
   }
 });
 
-// COPY content(id, title, "courseId") FROM '/Users/ling/HRR/cassandra-db/db/content.csv' with HEADER = FALSE;
+// COPY content(id, title, "courseId") FROM '/Users/ling/HRR/coursecontent-service-mobin0/db/content.csv' with HEADER = FALSE;
 // COPY entry(id, name, duration, "contentId") FROM '/Users/ling/HRR/cassandra-db/db/entry.csv' with HEADER = FALSE;
