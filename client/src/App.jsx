@@ -6,6 +6,7 @@ import CourseContent from './components/CourseContent.jsx';
 import _ from 'lodash';
 import axios from 'axios';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -47,7 +48,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const course = Math.floor(Math.random() * 10);
+    const course = Math.floor(Math.random() * 10000000);
+    console.log('house: ')
     axios.get(`/api/${course}`).then((response) => {
       this.setState({
         courseData: response.data,
@@ -81,7 +83,8 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className = "app-container">
+      <div className = "app-container">{this.state.loading &&
+        <div>
         <div className = "app-header">
           <span className = "header-title"> Course Content </span>
           <span className = "expand" onClick = {this.expandClickHandler}> {this.state.expanded? "Collapse All" : "Expand All"} </span>
@@ -91,10 +94,10 @@ class App extends React.Component {
           {this.state.hours + ":" + this.state.minutes}</span>
         </div>
         <div className= "course-content-container">
-        { this.state.loading &&
             <CourseContent updateCourseItemStates = {this.updateCourseItemStates} courseData = {this.state.courseData}/>
-        }</div>
-      </div>
+        </div>
+        </div>
+      }</div>
     )
   }
 }

@@ -10,7 +10,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "seed": "node db/createDB.js",
+    "seed": "node db/seed/dataGeneration.js",
     "db:seed": "psql -d courses -U postgres -f db/seed/schema.sql",
     "test:client": "jest --watchAll --expand --verbose",
     "test:coverage": "jest --verbose --coverage"
@@ -63,10 +63,12 @@
     "fast-csv": "^2.4.1",
     "file-system": "^2.2.2",
     "fs": "0.0.1-security",
+    "go": "^3.0.1",
     "jquery": "^3.1.1",
     "jsonexport": "^2.3.0",
     "knex": "^0.15.2",
     "mongoose": "^4.13.17",
+    "newrelic": "^4.11.0",
     "perf_hooks": "0.0.1",
     "pg": "^7.6.1",
     "ramda": "^0.25.0",
