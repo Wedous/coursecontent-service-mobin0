@@ -8,7 +8,7 @@ import $ from 'jquery';
 
 
 class Entries extends React.Component {
-  constructor ({entry}) {
+  constructor ({entry, total}) {
     super();
     this.state = {
       entry :entry

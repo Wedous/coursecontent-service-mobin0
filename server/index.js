@@ -1,33 +1,38 @@
 require('newrelic');
 const express = require('express');
 let app = express();
-var faker = require('faker');
-var fs = require('fs');
+const bodyParser = require('body-parser');
 const { Pool, Client } = require('pg');
-const db = new Pool({ database: 'courses' });
+var connection = 'postgres://ling:@127.0.0.1:5432/courses';
+const db = new Client(connection);
+db.connect();
+let port = 3000;
 
 app.use(express.static(__dirname + '/../public'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+//app.use(express.json());
+//app.use(express.urlencoded({ extended: true }));
+
 
 app.get('/api/:courseId', (req, res) => {
-  db.connect((err, client, release) => {
+  //const index = req.params.courseId;
+  const index = Math.floor(Math.random() * 1000000);
+  // const end = index + 1;
+  // console.log(end);
+  //     db.query(`select title, jsonb_agg(jsonb_build_object('name', name, 'duration', duration)) as entry 
+  // from (select * from content left join entries on content.id = entries.contentId where content.id = 
+  //   ${req.params.courseId}) AS derivedTable group by title`, (err, result) => {
+  db.query(`select * from content natural join entries where id = 
+  ${req.params.courseId}`, (err, result) => {
     if (err) {
-      return console.error('Error acquiring client', err.stack);
-    }
-    client.query(`select title, jsonb_agg(jsonb_build_object('name', name, 'duration', duration)) as entry 
-from (select * from content left join entries on content.id = entries.contentId where content.courseId = 
-  ${req.params.courseId}) AS derivedTable group by title`, (err, result) => {
-      release();
-      if (err) {
-        return console.error('Error executing query', err.stack);
-      }
+      console.log('ERROR: ', err);
+    } else {
+      //console.log(result);
       res.send(result.rows);
-    });
+    }
   });
 });
-
-let port = 3000;
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);

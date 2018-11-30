@@ -8,10 +8,11 @@ import _ from "lodash";
 
 
 class CourseItem extends React.Component {
-  constructor ({courseItem, updateCourseItemStates}) {
+  constructor ({courseItem, total, updateCourseItemStates}) {
     super();
     this.state = {
       courseItem: courseItem,
+      total: total,
       //entries: courseItem.entries,
       title: courseItem.title,
       //sectionNumber: courseItem.sectionNumber,
@@ -26,7 +27,7 @@ class CourseItem extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.setTime();
     this.setMinutes();
-
+    //console.log('courseItem this.state.courseItem', this.state.courseItem);
   }
 
   componentDidMount () {
@@ -34,7 +35,7 @@ class CourseItem extends React.Component {
   }
 
   setTime () {
-    this.state.courseDuration = _.reduce(this.state.entries, (a,c) => (a + c.duration),0)
+    this.state.courseDuration = _.reduce(this.state.total, (a,c) => (a + c.duration),0)
 
   }
   clickHandler() {
@@ -55,11 +56,13 @@ class CourseItem extends React.Component {
         <div className = "course-item" onClick = {this.clickHandler}>
           <span className = "plus-sign">{this.state.hidden ? "+": "–"}</span>
           <span className= "course-title">{this.state.title + ""}</span>
-          <span className = {this.state.hidden? "course-lecture-length": "course-lecture-length-hidden"}>{this.state.courseItem.length + " lectures"}</span>
+          <span className = {this.state.hidden? "course-lecture-length": "course-lecture-length-hidden"}>{this.state.total.length + " lectures"}</span>
           <span className = "course-lecture-duration">{this.state.hours + ":" + this.state.minutes}</span>
         </div>
         <div className = {this.state.hidden ? "course-entries" : "course-entries-shown"} id = {"section" + this.state.sectionNumber}>
-          { this.state.loading && this.state.courseItem.entry.map((entry) => (<Entries key = {JSON.stringify(entry)} entry = {entry} sectionNumber = {this.state.sectionNumber}/>)
+          { this.state.loading && this.state.total.map((entry) => (<Entries
+          key = {JSON.stringify(entry)} entry = {entry}
+          sectionNumber = {this.state.sectionNumber}/>)
           )}
         </div>
       </div>

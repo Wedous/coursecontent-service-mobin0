@@ -42,20 +42,20 @@ class App extends React.Component {
     let minutes = this.state.totalLectureDuration;
     let hours = Math.floor(minutes / 60);
     minutes = minutes - hours * 60;
-    console.log(minutes);
+    //console.log(minutes);
     this.state.minutes = minutes < 10 ? '0' + minutes : '' + minutes;
     this.state.hours = hours < 10 ? '0' + hours : '' + hours;
   }
 
   componentDidMount() {
     const course = Math.floor(Math.random() * 10000000);
-    console.log('house: ')
+    //console.log('house: ')
     axios.get(`/api/${course}`).then((response) => {
       this.setState({
         courseData: response.data,
         loading: true
       });
-      console.log('App.jsx this.state.courseData', this.state.courseData);
+      //console.log('App.jsx this.state.courseData', this.state.courseData);
     }).catch((err) => {
       console.log('error: ', err);
     });
@@ -64,7 +64,7 @@ class App extends React.Component {
         console.log('???');
         return accum + curr.entry.length;
       }, 0);
-    console.log('currLectureCount', currLectureCount);
+    //console.log('currLectureCount', currLectureCount);
     this.setState({lectureCount: currLectureCount});
   }
 
@@ -89,7 +89,7 @@ class App extends React.Component {
           <span className = "header-title"> Course Content </span>
           <span className = "expand" onClick = {this.expandClickHandler}> {this.state.expanded? "Collapse All" : "Expand All"} </span>
           <span className = "total-lecture-length">
-          {this.state.lectureCount} lectures </span>
+          {this.state.courseData.length} lectures </span>
           <span className = "total-lecture-duration">
           {this.state.hours + ":" + this.state.minutes}</span>
         </div>
